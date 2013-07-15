@@ -1,0 +1,13 @@
+class CreateCoastersUsers < ActiveRecord::Migration
+  def up
+    create_table :coasters_users do |t|
+      t.belongs_to :coaster
+      t.belongs_to :user
+      t.timestamps
+    end
+  end
+
+  def down
+    drop_table :coasters_users
+  end
+end
