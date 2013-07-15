@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130715204846) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "coasters_users", :force => true do |t|
+  create_table "coasters_users", :id => false, :force => true do |t|
     t.integer  "coaster_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
