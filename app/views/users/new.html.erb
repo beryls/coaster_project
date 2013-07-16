@@ -3,9 +3,10 @@
 <% if @user.errors.any? %>
   <h2>You've got <%= pluralize(@user.errors.count, "problem") %>!</h2>
   <ul>
-  <% @user.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
   <% end %>
 
 <form action="/users" method="post">
