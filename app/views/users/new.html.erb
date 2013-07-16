@@ -1,6 +1,14 @@
 <h1>Add a new user</h1>
 
-<form action="/users/create" method="post">
+<% if @user.errors.any? %>
+  <h2>You've got <%= pluralize(@user.errors.count, "problem") %>!</h2>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+  <% end %>
+
+<form action="/users" method="post">
   <input type="text" name="name" placeholder="Name"><br/>
   <input type="text" name="user_name" placeholder="User Name"><br/>
   <input type="text" name="email" placeholder="Email address"><br/>
