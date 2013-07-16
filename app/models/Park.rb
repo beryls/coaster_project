@@ -12,6 +12,8 @@
 #
 
 class Park < ActiveRecord::Base
+  # makes all user attributes accessible
+  attr_accessible :name
   # defines relationship between parks and coasters
   has_many :coasters
 end

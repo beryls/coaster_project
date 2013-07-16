@@ -3,7 +3,7 @@ class CreateCoasters < ActiveRecord::Migration
     create_table :coasters do |t|
       t.string :name
       t.belongs_to :park
-      t.string :type
+      t.string :material
       t.decimal :height
       t.decimal :length
       t.decimal :speed

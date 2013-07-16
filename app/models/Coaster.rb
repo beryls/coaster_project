@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  park_id    :integer
-#  type       :string(255)
+#  material       :string(255)
 #  height     :decimal(, )
 #  length     :decimal(, )
 #  speed      :decimal(, )
@@ -15,6 +15,8 @@
 #
 
 class Coaster < ActiveRecord::Base
+  # makes all user attributes accessible
+  attr_accessible :name, :park_id, :material
   # defines relationship between coasters and users
   has_and_belongs_to_many :users
   # defines relationship between coasters and parks

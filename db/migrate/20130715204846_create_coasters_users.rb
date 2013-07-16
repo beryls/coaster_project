@@ -3,7 +3,6 @@ class CreateCoastersUsers < ActiveRecord::Migration
     create_table :coasters_users, :id => false do |t|
       t.belongs_to :coaster
       t.belongs_to :user
-      t.timestamps
     end
   end
 

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20130715204846) do
   create_table "coasters", :force => true do |t|
     t.string   "name"
     t.integer  "park_id"
-    t.string   "type"
+    t.string   "material"
     t.decimal  "height"
     t.decimal  "length"
     t.decimal  "speed"
@@ -26,10 +26,8 @@ ActiveRecord::Schema.define(:version => 20130715204846) do
   end
 
   create_table "coasters_users", :id => false, :force => true do |t|
-    t.integer  "coaster_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "coaster_id"
+    t.integer "user_id"
   end
 
   create_table "parks", :force => true do |t|
