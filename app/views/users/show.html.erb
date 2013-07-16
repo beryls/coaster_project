@@ -3,3 +3,9 @@
 <%= @user.name %><br/>
 <%= @user.email %><br/>
 <%= @user.password %><br/>
+
+<ul>
+  <% @user.coasters.each do |coaster| %>
+    <li><%= link_to coaster.name, coaster %></li>
+  <% end %>
+</ul>
