@@ -5,7 +5,12 @@
 <%= @user.password %><br/>
 
 <ul>
-  <% @user.coasters.each do |coaster| %>
-    <li><%= link_to coaster.name, coaster %></li>
+<% @user_parks.each do |park| %>
+  <li><%= park.name %></li>
+  <ul>
+    <% @user.coasters.where(park_id: park.id).each do |coaster| %>
+      <li><%= link_to coaster.name, coaster %></li>
+    <% end %>
+  </ul>
   <% end %>
 </ul>

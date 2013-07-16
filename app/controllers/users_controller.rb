@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    park_ids = @user.coasters.pluck(:park_id).uniq
+    @user_parks = Park.find(park_ids)
   end
 
   def new
