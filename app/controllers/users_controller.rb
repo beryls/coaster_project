@@ -20,9 +20,27 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
-      redirect_to '/users'
+      redirect_to "/users/#{params[:id]}"
     else
       render action: "new"
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    @id = params[:id]
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.name = params[:name]
+    @user.user_name = params[:user_name]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    if @user.save
+      redirect_to "/users/#{params[:id]}"
+    else
+      render action: "edit"
     end
   end
 end

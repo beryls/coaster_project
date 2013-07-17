@@ -6,3 +6,7 @@
 <% end %>
 <br/>
 <%= render 'results' %>
+
+<% if @parks.empty? && params[:query] %>
+  No results returned.
+<% end %>

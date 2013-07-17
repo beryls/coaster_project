@@ -6,7 +6,7 @@
 
 <ul>
   <% @user_parks.each do |park| %>
-  <li><%= park.name %></li>
+  <li><%= link_to park.name, park %></li>
   <ul>
     <% @user.coasters.where(park_id: park.id).each do |coaster| %>
       <li><%= link_to coaster.name, coaster %></li>

@@ -1,1 +1,18 @@
 <h1>Edit user</h1>
+
+<% if @user.errors.any? %>
+  <h2>You've got <%= pluralize(@user.errors.count, "problem") %>!</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<%= form_tag("/users/#{@id}", method: 'put') do %>
+  <%= text_field_tag(:name, nil, :value => @user.name) %><br />
+  <%= text_field_tag(:user_name, nil, :value => @user.user_name) %><br />
+  <%= text_field_tag(:email, nil, :value => @user.email) %><br />
+  <%= text_field_tag(:password, nil, :value => @user.password) %><br />
+  <%= submit_tag 'Update User' %>
+<% end %>
