@@ -1,3 +1,8 @@
-<% @parks.each do |park| %>
-  <%= link_to park.name, park %>
+<% if @parks.present? %>
+  <ul>
+  <% @parks.each do |park| %>
+    <! Provides links for each park called. >
+    <li><%= link_to park.name, park %></li>
+  <% end %>
+  </ul>
 <% end %>
