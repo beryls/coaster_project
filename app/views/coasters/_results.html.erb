@@ -1,0 +1,8 @@
+<% if @coasters.present? %>
+  <ul>
+  <% @coasters.each do |coaster| %>
+  <! Provides links for each roller coaster called and that roller coaster's park. >
+    <li><%= link_to coaster.name, coaster %> (Park: <%= link_to Park.where(id: coaster.park_id).first.name, Park.where(id: coaster.park_id).first %>)</li>
+  <% end %>
+  </ul>
+<% end %>

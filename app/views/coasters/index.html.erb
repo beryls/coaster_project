@@ -1,10 +1,8 @@
 <h1>All coasters</h1>
 
-<% @parks.each do |park| %>
-  <h3><%= park.name %></h3>
-  <ul>
-    <% Coaster.where(park_id: park.id).each do |coaster| %>
-      <li><%= link_to coaster.name, coaster %></li>
-    <% end %>
-  </ul>
+<%= form_tag('/coasters', method: 'get') do %>
+  <%= text_field_tag(:query, nil ,:placeholder => 'Search for a coaster') %>
+  <%= submit_tag 'Search' %>
 <% end %>
+
+<%= render 'results' %>
