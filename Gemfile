@@ -6,8 +6,12 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+
 gem 'nokogiri'
 
+gem 'devise'
+
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'pry-rails'           # Causes rails console to open pry
