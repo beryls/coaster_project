@@ -1,7 +1,8 @@
-<h1>All parks</h1>
+<h1>Search for parks</h1>
 
-<ul>
-  <% @parks.each do |park| %>
-    <li><%= link_to park.name, park %></li>
-  <% end %>
-</ul>
+<%= form_tag('/parks', method: 'get') do %>
+  <%= text_field_tag(:query, nil, :placeholder => 'Search for a park') %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<br/>
+<%= render 'results' %>
