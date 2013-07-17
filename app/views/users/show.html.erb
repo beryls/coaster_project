@@ -5,7 +5,7 @@
 <%= @user.password %><br/>
 
 <ul>
-<% @user_parks.each do |park| %>
+  <% @user_parks.each do |park| %>
   <li><%= park.name %></li>
   <ul>
     <% @user.coasters.where(park_id: park.id).each do |coaster| %>

@@ -1,0 +1,10 @@
+<h1>All coasters</h1>
+
+<% @parks.each do |park| %>
+  <h3><%= park.name %></h3>
+  <ul>
+    <% Coaster.where(park_id: park.id).each do |coaster| %>
+      <li><%= link_to coaster.name, coaster %></li>
+    <% end %>
+  </ul>
+<% end %>
