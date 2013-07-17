@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to "/users/#{params[:id]}"
     else
+      @id = params[:id]
       render action: "edit"
     end
   end

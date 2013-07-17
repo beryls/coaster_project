@@ -15,8 +15,8 @@
   <% end %>
 </ul>
 
-<a href="/users/<%= @user.id %>/edit">Edit profile</a><br />
+<a href="/users/<%= @user.id %>/edit">Edit profile</a><br/>
 
-<%= form_tag("/users/#{@id}", method: 'delete') do %>
+<%= form_tag("/users/#{@user.id}", method: 'delete') do %>
   <%= submit_tag 'Delete Profile' %>
 <% end %>
