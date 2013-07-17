@@ -27,6 +27,7 @@ group :development, :test do
   gem 'meta_request'        # Supporting gem for Rails Panel (Google Chrome extension for Rails development).
                             # https://github.com/dejan/rails_panel/tree/master/meta_request
   gem 'rails-erd'           # Diagrams your models
+  gem 'dotenv-rails'
 end
 
 # Gems used only for assets and not required
