@@ -43,4 +43,9 @@ class UsersController < ApplicationController
       render action: "edit"
     end
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to "/users"
+  end
 end
