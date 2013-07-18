@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     park_ids = @user.coasters.pluck(:park_id).uniq
     @user_parks = Park.find(park_ids)
+    @json = @user_parks.to_gmaps4rails
   end
 
   def new

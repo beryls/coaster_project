@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(:version => 20130715204846) do
 
   create_table "parks", :force => true do |t|
     t.string   "name"
-    t.string   "location"
+    t.string   "city"
+    t.string   "state"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "gmaps"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

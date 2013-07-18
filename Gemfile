@@ -9,8 +9,6 @@ gem 'sqlite3'
 
 gem 'nokogiri'
 
-gem 'devise'
-
 gem 'gmaps4rails'
 
 group :development, :test do

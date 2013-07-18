@@ -15,6 +15,8 @@
   <% end %>
 </ul>
 
+<%= gmaps4rails(@json) %>
+
 <a href="/users/<%= @user.id %>/edit">Edit profile</a><br/>
 
 <%= form_tag("/users/#{@user.id}", method: 'delete') do %>

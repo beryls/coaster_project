@@ -16,9 +16,9 @@ u2 = User.create(name: "Oren Schragger", user_name: "Oren", email: "oren.schragg
 u3 = User.create(name: "Nancy Schragger", user_name: "Nancy", email: "nancy.schragger@gmail.com", password: "yeahyeah")
 u4 = User.create(name: "Paul Schragger", user_name: "Paul", email: "paul.schragger@gmail.com", password: "blahblah")
 
-p1 = Park.create(name: "Cedar Point")
-p2 = Park.create(name: "Dorney Park")
-p3 = Park.create(name: "Busch Gardens Tampa")
+p1 = Park.create(name: "Cedar Point", city: "Sandusky", state: "OH")
+p2 = Park.create(name: "Dorney Park", city: "Allentown", state: "PA")
+p3 = Park.create(name: "Busch Gardens Tampa", city: "Tampa", state: "FL")
 
 c1 = Coaster.create(name: "Raptor", park_id: 1, material: "Steel")
 c2 = Coaster.create(name: "Mantis", park_id: 1, material: "Steel")
