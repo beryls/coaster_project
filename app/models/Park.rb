@@ -16,6 +16,7 @@ class Park < ActiveRecord::Base
   # makes all user attributes accessible
   attr_accessible :name, :city, :state
   # requires existence of park attributes to input
+  # need city and state for Google Maps API
   validates :name, :city, :state, presence: true
   # requires unique park name
   validates :name, uniqueness: true
@@ -27,8 +28,6 @@ class Park < ActiveRecord::Base
   def gmaps4rails_address
     #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
     "#{self.name}, #{self.city}, #{self.state}"
-    #  "902 Broadway, NY, NY"
-    #  "#{name}"
   end
 
 end

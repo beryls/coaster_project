@@ -10,11 +10,16 @@ class ParksController < ApplicationController
   end
 
   def new
+    @user = current_user
+    if @user.nil?
+      redirect_to root_url
+    end
     @park = Park.new
   end
 
   def create
     @park = Park.new(params[:park])
+    # will only save and redirect if validation is met - otherwise, will remain in '/parks/new'
     if @park.save
       redirect_to root_url, notice: "Added park!"
     else

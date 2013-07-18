@@ -26,9 +26,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    # is there any way to log in a newly signed up user automatically?
+    # will only save and redirect if validation is met - otherwise, will remain in sign_up
     if @user.save
-      redirect_to root_url, notice: "Signed up!"
+      # is there any way to log in a newly signed up user automatically?
+      redirect_to "/sessions/new", notice: "Signed up!"
     else
       render "new"
     end
