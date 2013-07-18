@@ -12,12 +12,13 @@ turn this into a form to add or remove coaster from user's coaster list -->
 <! lists coaster's attributes >
 <ul>
   <li>Type: <%= @coaster.material %></li>
-  <li>Height: <%= @coaster.height %></li>
-  <li>Length: <%= @coaster.length %></li>
-  <li>Speed: <%= @coaster.speed %></li>
+  <li>Height: <%= @coaster.height %> ft</li>
+  <li>Length: <%= @coaster.length %> ft</li>
+  <li>Speed: <%= @coaster.speed %> mph</li>
   <li>Inversions: <%= @coaster.inversions %></li>
 </ul>
 
+<%= link_to "Edit this coaster", edit_coaster_path %>
 <%= render 'links' %>
 
 <! API for Google Maps - set up to show the coaster's park >

@@ -41,4 +41,24 @@ class CoastersController < ApplicationController
       render "new"
     end
   end
+
+  def edit
+    @coaster = Coaster.find(params[:id])
+  end
+
+  def update
+    @coaster = Coaster.find(params[:id])
+    @coaster.material = params[:material]
+    @coaster.height = params[:height]
+    @coaster.length = params[:length]
+    @coaster.speed = params[:speed]
+    @coaster.inversions = params[:inversions]
+    if @coaster.save
+      binding.pry
+      redirect_to "/coasters/#{params[:id]}"
+    else
+      @id = params[:id]
+      render action: "edit"
+    end
+  end
 end
