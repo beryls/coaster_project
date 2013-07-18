@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
     @user = current_user
+    if @user
+      redirect_to "/users/#{@user.id}"
+    end
   end
 
   def show
@@ -42,6 +45,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.user_name = params[:user_name]
     @user.email = params[:email]
+    # need to require password confirmation to update
     @user.password = params[:password]
     if @user.save
       redirect_to "/users/#{params[:id]}"
@@ -53,6 +57,6 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    redirect_to "/users"
+    redirect_to root_url
   end
 end

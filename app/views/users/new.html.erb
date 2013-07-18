@@ -1,7 +1,9 @@
 <h1>Sign up</h1>
 
+<! Form to add a new user >
 <%= form_for @user do |f| %>
 
+  <! If the form is filled out incorrectly, this will return an error message, and details of the issues >
   <% if @user.errors.any? %>
     <h2>Form is invalid</h2>
     <ul>

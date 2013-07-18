@@ -1,8 +1,7 @@
 <h1>Hello, <%= @user.user_name %>!</h1>
 
-<%= @user.email %><br/>
-<%= @user.password %><br/>
 
+<! List of all parks in which the user has ridden a roller coaster - each park has a list of the coasters the user has ridden at that park. >
 <ul>
   <% @user_parks.each do |park| %>
   <li><%= link_to park.name, park %></li>
@@ -14,12 +13,13 @@
   <% end %>
 </ul>
 
-<%= gmaps4rails(@json) %><br/>
+<! Link to edit profile page >
+<a href="/users/<%= @user.id %>/edit">Edit profile</a><br/><br/>
 
-<%= link_to "Log out", log_out_path %><br/><br/>
-
-<a href="/users/<%= @user.id %>/edit">Edit profile</a><br/>
-
+<! Form to delete user profile. Causes error at present - deletes profile, but leaves session[:user_id] with value. >
 <%= form_tag("/users/#{@user.id}", method: 'delete') do %>
   <%= submit_tag 'Delete Profile' %>
-<% end %>
+<% end %><br/>
+
+<! API for Google Maps - set up to show the user's parks. >
+<%= gmaps4rails(@json) %><br/>

@@ -1,5 +1,8 @@
 <h1>Edit profile</h1>
 
+<! Form to edit a current user - used form_tag instead of form_for. Not sure why. >
+
+<! If the form is filled out incorrectly, this will return an error message, and details of the issues >
 <% if @user.errors.any? %>
   <h2>You've got <%= pluralize(@user.errors.count, "problem") %>!</h2>
   <ul>
@@ -9,14 +12,18 @@
   </ul>
   <% end %>
 
+<! Form to edit user profile - still has some bugs >
 <%= form_tag("/users/#{@id}", method: 'put') do %>
-  <%= text_field_tag(:name, nil, :value => @user.name) %><br/>
   <%= text_field_tag(:user_name, nil, :value => @user.user_name) %><br/>
   <%= text_field_tag(:email, nil, :value => @user.email) %><br/>
-  <%= text_field_tag(:password, nil, :value => @user.password) %><br/>
+  <%= password_field_tag(:password, nil, :value => @user.password) %><br/>
+  <! Need to fix this form so password and password_confirmation have to match in order to update >
+  <%= password_field_tag(:password_confirmation, nil, :value => @user.password) %><br/>
   <%= submit_tag 'Update User' %>
 <% end %>
 <br/>
+
+<! Form to delete user profile. Causes error at present - deletes profile, but leaves session[:user_id] with value. >
 <%= form_tag("/users/#{@id}", method: 'delete') do %>
   <%= submit_tag 'Delete Profile' %>
 <% end %>
