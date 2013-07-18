@@ -1,6 +1,9 @@
 <h1><%= @coaster.name %></h1>
 <h2>Park: <%= @park.name %></h2>
 
+<%= label_tag "Have you ridden this coaster?" %>
+    <%= check_box_tag "user.coasters", @coaster.id, @user.coasters.include?(@coaster) %>
+
 <ul>
   <li>Type: <%= @coaster.material %></li>
   <li>Height: <%= @coaster.height %></li>
