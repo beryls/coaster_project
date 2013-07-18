@@ -68,6 +68,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     # effectively logs out, so session is not calling a non-existent user id
     session[:user_id] = nil
-    redirect_to root_url, notice: "Profile deleted"
+    redirect_to root_url, notice: "Profile deleted.  Sorry to see you go."
   end
 end
