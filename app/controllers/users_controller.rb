@@ -2,9 +2,11 @@ class UsersController < ApplicationController
   def index
     # if a session is in progress, redirects to the user show page
     # otherwise, displays index page (almost blank at present)
-    user = current_user
-    if user
-      redirect_to "/users/#{user.id}"
+    @user = current_user
+    if @user
+      redirect_to "/users/#{@user.id}"
+    else
+      redirect_to root_url
     end
   end
 
