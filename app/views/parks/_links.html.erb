@@ -1,2 +1,7 @@
-<%= link_to "Add a new park", new_park_path %><br/>
-<%= link_to "Add a new coaster", new_coaster_path %>
+<br/>
+<% if current_user %>
+  <%= link_to "Add a new park", new_park_path %><br/>
+  <%= link_to "Add a new coaster", new_coaster_path %>
+<% else %>
+  Log in or sign up to add new parks and coasters.
+<% end %>
