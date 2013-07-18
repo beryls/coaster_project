@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(:version => 20130715204846) do
     t.string   "name"
     t.integer  "park_id"
     t.string   "material"
-    t.decimal  "height"
-    t.decimal  "length"
-    t.decimal  "speed"
+    t.integer  "height"
+    t.integer  "length"
+    t.integer  "speed"
     t.integer  "inversions"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # This is if login worked
       # Stores the user_id in a cookie!!!!!! This is your wristband for the club
       session[:user_id] = user.id
-      redirect_to root_url, notice: "Logged in!!!"
+      redirect_to user, notice: "Logged in!!!"
     else
       # This is if login didn't work
       flash.now.alert = "Invalid user name or password"

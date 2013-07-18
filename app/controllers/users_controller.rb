@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @user = @current_user
+    @user = current_user
   end
 
   def show
-    @user = @current_user
+    @user = current_user
     park_ids = @user.coasters.pluck(:park_id).uniq
     @user_parks = Park.find(park_ids)
     @json = @user_parks.to_gmaps4rails
