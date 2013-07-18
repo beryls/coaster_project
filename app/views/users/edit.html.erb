@@ -23,7 +23,7 @@
 <% end %>
 <br/>
 
-<! Form to delete user profile. Causes error at present - deletes profile, but leaves session[:user_id] with value. >
+<! Form to delete user profile. >
 <%= form_tag("/users/#{@id}", method: 'delete') do %>
   <%= submit_tag 'Delete Profile' %>
 <% end %>

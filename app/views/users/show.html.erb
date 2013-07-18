@@ -16,7 +16,7 @@
 <! Link to edit profile page >
 <a href="/users/<%= @user.id %>/edit">Edit profile</a><br/><br/>
 
-<! Form to delete user profile. Causes error at present - deletes profile, but leaves session[:user_id] with value. >
+<! Form to delete user profile. >
 <%= form_tag("/users/#{@user.id}", method: 'delete') do %>
   <%= submit_tag 'Delete Profile' %>
 <% end %><br/>

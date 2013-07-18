@@ -57,6 +57,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    redirect_to root_url
+    session[:user_id] = nil
+    redirect_to root_url, notice: "Profile deleted"
   end
 end
