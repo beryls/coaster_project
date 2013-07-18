@@ -1,0 +1,31 @@
+<h1>Add a coaster to the database</h1>
+
+<%= form_for @coaster do |f| %>
+
+  <% if @coaster.errors.any? %>
+    <h2>Form is invalid</h2>
+    <ul>
+      <% @coaster.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+  <%= f.label :park_id %>
+  <%= f.collection_select :park_id, Park.all, :id, :name %><br/>
+  <%= f.label :material %>
+  <%= f.text_field :material %><br/>
+  <%= f.label :height %>
+  <%= f.number_field :height %><br/>
+  <%= f.label :length %>
+  <%= f.number_field :length %><br/>
+  <%= f.label :speed %>
+  <%= f.number_field :speed %><br/>
+  <%= f.label :inversions %>
+  <%= f.number_field :inversions %><br/>
+
+  <%= f.submit "Create coaster" %>
+
+<% end %>

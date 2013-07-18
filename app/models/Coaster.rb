@@ -6,9 +6,9 @@
 #  name       :string(255)
 #  park_id    :integer
 #  material       :string(255)
-#  height     :decimal(, )
-#  length     :decimal(, )
-#  speed      :decimal(, )
+#  height     :integer
+#  length     :integer
+#  speed      :integer
 #  inversions :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -16,7 +16,9 @@
 
 class Coaster < ActiveRecord::Base
   # makes all user attributes accessible
-  attr_accessible :name, :park_id, :material
+  attr_accessible :name, :park_id, :material, :height, :length, :speed, :inversions
+  # requires existence of coaster attributes to input
+  validates :name, :park_id, presence: true
   # defines relationship between coasters and users
   has_and_belongs_to_many :users
   # defines relationship between coasters and parks

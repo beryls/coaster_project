@@ -4,9 +4,9 @@ class CreateCoasters < ActiveRecord::Migration
       t.string :name
       t.belongs_to :park
       t.string :material
-      t.decimal :height
-      t.decimal :length
-      t.decimal :speed
+      t.integer :height
+      t.integer :length
+      t.integer :speed
       t.integer :inversions
       t.timestamps
     end
