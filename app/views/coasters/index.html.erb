@@ -6,3 +6,8 @@
 <% end %>
 <br/>
 <%= render 'results' %>
+
+<! Returns error message if search returns no results. >
+<% if @coasters.empty? && params[:query] %>
+  No results returned.
+<% end %>
