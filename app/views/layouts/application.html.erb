@@ -13,6 +13,14 @@
   <h1>So Inclined</h1>
 </header>
 
+<nav>
+  <a href="/users">Basic user page</a>
+  <a href="/parks">Search for parks</a>
+  <a href="/coasters">Search for coasters</a>
+</nav>
+
+<br/>
+
 <div id="user_nav">
   <% if current_user %>
     Logged in as <%= current_user.user_name %>.
@@ -23,11 +31,13 @@
   <% end %>
 </div>
 
-<nav>
-  <a href="/users">Basic user page</a>
-  <a href="/parks">Search for parks</a>
-  <a href="/coasters">Search for coasters</a>
-</nav>
+<br/>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+
 
 <%= yield %>
 
