@@ -11,10 +11,10 @@ Coaster.delete_all
 Park.delete_all
 User.delete_all
 
-u1 = User.create(name: "Beryl Schragger", user_name: "Beryl", email: "beryl.schragger@gmail.com", password: "blahblah")
-u2 = User.create(name: "Oren Schragger", user_name: "Oren", email: "oren.schragger@gmail.com", password: "dootdoot")
-u3 = User.create(name: "Nancy Schragger", user_name: "Nancy", email: "nancy.schragger@gmail.com", password: "yeahyeah")
-u4 = User.create(name: "Paul Schragger", user_name: "Paul", email: "paul.schragger@gmail.com", password: "blahblah")
+u1 = User.create(user_name: "Beryl", email: "beryl.schragger@gmail.com", password: "blahblah")
+u2 = User.create(user_name: "Oren", email: "oren.schragger@gmail.com", password: "dootdoot")
+u3 = User.create(user_name: "Nancy", email: "nancy.schragger@gmail.com", password: "yeahyeah")
+u4 = User.create(user_name: "Paul", email: "paul.schragger@gmail.com", password: "blahblah")
 
 p1 = Park.create(name: "Cedar Point", city: "Sandusky", state: "OH")
 p2 = Park.create(name: "Dorney Park", city: "Allentown", state: "PA")

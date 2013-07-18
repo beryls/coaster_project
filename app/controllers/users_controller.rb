@@ -40,7 +40,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.name = params[:name]
     @user.user_name = params[:user_name]
     @user.email = params[:email]
     @user.password = params[:password]

@@ -26,11 +26,11 @@ class User < ActiveRecord::Base
   # defines relationship between users and coasters
   has_and_belongs_to_many :coasters
   # makes all user attributes accessible
-  attr_accessible :name, :user_name, :email, :password, :password_confirmation
+  attr_accessible :user_name, :email, :password, :password_confirmation
   # requires existence of all user attributes
-  validates :name, :user_name, :email, presence: true
+  validates :user_name, :email, presence: true
   # defines maximum length for all user attributes
-  validates :name, :user_name, :email, :password, length: { maximum: 40 }
+  validates :user_name, :email, :password, length: { maximum: 40 }
   # requires unique user name and email address
   validates :user_name, :email, uniqueness: true
   # requires password to be at least 8 letters
@@ -48,9 +48,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.authenticate(email, password)
+  def self.authenticate(user_name, password)
     # This will auth a user
-    user = User.find_by_email(email)
+    user = User.find_by_user_name(user_name)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else
