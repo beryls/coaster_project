@@ -1,25 +1,29 @@
 <h1>Edit profile</h1>
 
-<! form to edit a current user - not sure why used form_tag instead of form_for >
+<! form to edit a current user>
+<%= form_for @user do |f| %>
 
-<! if the form is filled out incorrectly, this will return an error message, and details of the issues >
-<% if @user.errors.any? %>
-  <h2>You've got <%= pluralize(@user.errors.count, "problem") %>!</h2>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+  <! If the form is filled out incorrectly, this will return an error message, and details of the issues >
+  <% if @user.errors.any? %>
+    <h2>Form is invalid</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
   <% end %>
 
-<! form to edit user profile - still has some bugs >
-<%= form_tag("/users/#{@id}", method: 'put') do %>
-  User Name: <%= text_field_tag(:user_name, nil, :value => @user.user_name) %><br/>
-  Email: <%= text_field_tag(:email, nil, :value => @user.email) %><br/>
-  Password: <%= password_field_tag(:password, nil, :value => @user.password) %><br/>
-  <! need to fix this form so password and password_confirmation have to match in order to update >
-  Confirm password: <%= password_field_tag(:password_confirmation, nil, :value => @user.password) %><br/>
-  <%= submit_tag 'Update User' %>
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name %><br/>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br/>
+  <%= f.label :password %> (min. 8 characters)
+  <%= f.password_field :password %><br/>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br/>
+
+  <%= f.submit %>
+
 <% end %>
 <br/>
 
@@ -27,3 +31,6 @@
 <%= form_tag("/users/#{@id}", method: 'delete') do %>
   <%= submit_tag 'Delete Profile' %>
 <% end %>
+
+
+

@@ -54,10 +54,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.user_name = params[:user_name]
-    @user.email = params[:email]
+    @user.user_name = params[:user][:user_name]
+    @user.email = params[:user][:email]
     # need to require password confirmation to update
-    @user.password = params[:password]
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       redirect_to "/users/#{params[:id]}"
     else
