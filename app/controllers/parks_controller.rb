@@ -1,16 +1,21 @@
 class ParksController < ApplicationController
   def index
+    # finds all parks returned by query
     @parks = Park.where(name: params[:query])
+    # passes queried-for parks into API for Google Maps
     @json = @parks.to_gmaps4rails
   end
 
   def show
+    # calls park with id and that park's coasters
     @park = Park.find(params[:id])
     @coasters = Coaster.where(park_id: @park.id)
+    # passes park into API for Google Maps
     @json = @park.to_gmaps4rails
   end
 
   def new
+    # will not allow person to add coasters unless logged in
     @user = current_user
     if @user.nil?
       redirect_to root_url

@@ -6,9 +6,9 @@ class CoastersController < ApplicationController
     @user = current_user
     # finds all parks of coasters returned by query
     park_ids = @coasters.pluck(:park_id).uniq
-    @user_parks = Park.find(park_ids)
-    # passes user's parks into API for Google Maps
-    @json = @user_parks.to_gmaps4rails
+    @coasters_parks = Park.find(park_ids)
+    # passes queried-for coasters' parks into API for Google Maps
+    @json = @coasters_parks.to_gmaps4rails
   end
 
   def show
@@ -22,7 +22,7 @@ class CoastersController < ApplicationController
   end
 
   def new
-    # will not allow person to add coasters unless logged in - probably smart
+    # will not allow person to add coasters unless logged in
     @user = current_user
     if @user.nil?
       redirect_to root_url
