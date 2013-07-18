@@ -1,7 +1,6 @@
 <h1>Hello, <%= @user.user_name %>!</h1>
 
-
-<! List of all parks in which the user has ridden a roller coaster - each park has a list of the coasters the user has ridden at that park. >
+<! list of all parks in which the user has ridden a roller coaster - each park has a list of the coasters the user has ridden at that park >
 <ul>
   <% @user_parks.each do |park| %>
   <li><%= link_to park.name, park %></li>
@@ -13,13 +12,13 @@
   <% end %>
 </ul>
 
-<! Link to edit profile page >
+<! link to edit profile page >
 <a href="/users/<%= @user.id %>/edit">Edit profile</a><br/><br/>
 
-<! Form to delete user profile. >
+<! form to delete user profile >
 <%= form_tag("/users/#{@user.id}", method: 'delete') do %>
   <%= submit_tag 'Delete Profile' %>
 <% end %><br/>
 
-<! API for Google Maps - set up to show the user's parks. >
+<! API for Google Maps - set up to show the user's parks >
 <%= gmaps4rails(@json) %><br/>
