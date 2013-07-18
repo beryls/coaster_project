@@ -1,0 +1,23 @@
+<h1>Add a park to the database</h1>
+
+<%= form_for @park do |f| %>
+
+  <% if @park.errors.any? %>
+    <h2>Form is invalid</h2>
+    <ul>
+      <% @park.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+  <%= f.label :city %>
+  <%= f.text_field :city %><br/>
+  <%= f.label :state %>
+  <%= f.text_field :state %><br/>
+
+  <%= f.submit "Create park" %>
+
+<% end %>

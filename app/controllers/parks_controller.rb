@@ -6,6 +6,19 @@ class ParksController < ApplicationController
   def show
     @park = Park.find(params[:id])
     @coasters = Coaster.where(park_id: @park.id)
-    @json = Park.all.to_gmaps4rails
+    @json = @park.to_gmaps4rails
+  end
+
+  def new
+    @park = Park.new
+  end
+
+  def create
+    @park = Park.new(params[:park])
+    if @park.save
+      redirect_to root_url, notice: "Added park!"
+    else
+      render "new"
+    end
   end
 end

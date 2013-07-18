@@ -15,6 +15,10 @@
 class Park < ActiveRecord::Base
   # makes all user attributes accessible
   attr_accessible :name, :city, :state
+  # requires existence of park attributes to input
+  validates :name, :city, :state, presence: true
+  # requires unique park name
+  validates :name, uniqueness: true
   # defines relationship between parks and coasters
   has_many :coasters
 
