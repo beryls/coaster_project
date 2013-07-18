@@ -18,7 +18,13 @@ turn this into a form to add or remove coaster from user's coaster list -->
   <li>Inversions: <%= @coaster.inversions %></li>
 </ul>
 
-<%= link_to "Edit this coaster", edit_coaster_path %>
+<br/>
+<% if current_user %>
+  <%= link_to "Edit this coaster", edit_coaster_path %>
+<% else %>
+  Log in or sign up to edit this coaster.
+<% end %>
+
 <%= render 'links' %>
 
 <! API for Google Maps - set up to show the coaster's park >

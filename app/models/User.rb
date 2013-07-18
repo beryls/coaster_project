@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
 
+  # requires password_confirmation presence
+  validates :password_confirmation, presence: true
   # defines relationship between users and coasters
   has_and_belongs_to_many :coasters
   # makes all user attributes accessible

@@ -16,7 +16,7 @@ class ParksController < ApplicationController
   end
 
   def new
-    # will not allow person to add coasters unless logged in
+    # will not allow person to add parks unless logged in
     @user = current_user
     if @user.nil?
       redirect_to root_url

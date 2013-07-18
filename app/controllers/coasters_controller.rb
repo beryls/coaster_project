@@ -43,18 +43,22 @@ class CoastersController < ApplicationController
   end
 
   def edit
+    # will not allow person to edit coasters unless logged in
+    @user = current_user
+    if @user.nil?
+      redirect_to root_url
+    end
     @coaster = Coaster.find(params[:id])
   end
 
   def update
     @coaster = Coaster.find(params[:id])
-    @coaster.material = params[:material]
-    @coaster.height = params[:height]
-    @coaster.length = params[:length]
-    @coaster.speed = params[:speed]
-    @coaster.inversions = params[:inversions]
+    @coaster.material = params[:coaster][:material]
+    @coaster.height = params[:coaster][:height]
+    @coaster.length = params[:coaster][:length]
+    @coaster.speed = params[:coaster][:speed]
+    @coaster.inversions = params[:coaster][:inversions]
     if @coaster.save
-      binding.pry
       redirect_to "/coasters/#{params[:id]}"
     else
       @id = params[:id]

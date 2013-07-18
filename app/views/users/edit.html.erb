@@ -14,11 +14,11 @@
 
 <! form to edit user profile - still has some bugs >
 <%= form_tag("/users/#{@id}", method: 'put') do %>
-  <%= text_field_tag(:user_name, nil, :value => @user.user_name) %><br/>
-  <%= text_field_tag(:email, nil, :value => @user.email) %><br/>
-  <%= password_field_tag(:password, nil, :value => @user.password) %><br/>
+  User Name: <%= text_field_tag(:user_name, nil, :value => @user.user_name) %><br/>
+  Email: <%= text_field_tag(:email, nil, :value => @user.email) %><br/>
+  Password: <%= password_field_tag(:password, nil, :value => @user.password) %><br/>
   <! need to fix this form so password and password_confirmation have to match in order to update >
-  <%= password_field_tag(:password_confirmation, nil, :value => @user.password) %><br/>
+  Confirm password: <%= password_field_tag(:password_confirmation, nil, :value => @user.password) %><br/>
   <%= submit_tag 'Update User' %>
 <% end %>
 <br/>
