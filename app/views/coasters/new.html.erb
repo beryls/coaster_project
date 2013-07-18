@@ -17,7 +17,7 @@
   <%= f.label :name %>
   <%= f.text_field :name %><br/>
   <%= f.label :park_id %>
-  <%= f.collection_select :park_id, Park.all, :id, :name %><br/>
+  <%= f.collection_select :park_id, Park.all, :id, :name, prompt: true %><br/>
   <%= f.label :material %>
   <%= f.text_field :material %><br/>
   <%= f.label :height %>
