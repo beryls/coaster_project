@@ -18,5 +18,7 @@ turn this into a form to add or remove coaster from user's coaster list -->
   <li>Inversions: <%= @coaster.inversions %></li>
 </ul>
 
+<%= render 'links' %>
+
 <! API for Google Maps - set up to show the coaster's park >
 <%= gmaps4rails(@json) %><br/>
