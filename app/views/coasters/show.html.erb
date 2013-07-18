@@ -1,5 +1,5 @@
 <h1><%= @coaster.name %></h1>
-<h2>Park: <%= Park.find(@coaster.park_id).name %></h2>
+<h2>Park: <%= @park.name %></h2>
 
 <ul>
   <li>Type: <%= @coaster.material %></li>
@@ -8,3 +8,5 @@
   <li>Speed: <%= @coaster.speed %></li>
   <li>Inversions: <%= @coaster.inversions %></li>
 </ul>
+
+<%= gmaps4rails(@json) %><br/>

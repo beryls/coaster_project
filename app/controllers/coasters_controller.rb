@@ -5,11 +5,13 @@ class CoastersController < ApplicationController
 
   def show
     @coaster = Coaster.find(params[:id])
+    @park = Park.find(@coaster.park_id)
+    @json = @park.to_gmaps4rails
   end
 
-  def search
-    @coasters = Coaster.where(name: params[:query])
-  end
+  # def search
+  #   @coasters = Coaster.where(name: params[:query])
+  # end
 
   def new
     @coaster = Coaster.new
