@@ -1,13 +1,17 @@
 <h1>Search for coasters</h1>
 
+<! query form to search for coasters - may want to use wildcards and/or titleize to allow for inexact searches >
 <%= form_tag('/coasters', method: 'get') do %>
   <%= text_field_tag(:query, nil ,:placeholder => 'Search for a coaster') %>
   <%= submit_tag 'Search' %>
 <% end %>
 <br/>
+<!-- turn results into a form to add or remove coasters from user's coaster list - can we do more than one at a time with checkboxes? -->
 <%= render 'results' %>
 
 <! Returns error message if search returns no results. >
 <% if @coasters.empty? && params[:query] %>
   No results returned.
 <% end %>
+
+<%= link_to "Add coaster", new_coaster_path %>

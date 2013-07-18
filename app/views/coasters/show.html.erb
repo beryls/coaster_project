@@ -1,9 +1,12 @@
 <h1><%= @coaster.name %></h1>
 <h2>Park: <%= @park.name %></h2>
 
+<!-- creates check box that is checked if user has ridden coaster
+turn this into a form to add or remove coaster from user's coaster list -->
 <%= label_tag "Have you ridden this coaster?" %>
     <%= check_box_tag "user.coasters", @coaster.id, @user.coasters.include?(@coaster) %>
 
+<! lists coaster's attributes >
 <ul>
   <li>Type: <%= @coaster.material %></li>
   <li>Height: <%= @coaster.height %></li>
@@ -12,4 +15,5 @@
   <li>Inversions: <%= @coaster.inversions %></li>
 </ul>
 
+<! API for Google Maps - set up to show the coaster's park >
 <%= gmaps4rails(@json) %><br/>

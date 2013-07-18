@@ -2,13 +2,19 @@ class CoastersController < ApplicationController
   def index
     @coasters = Coaster.where(name: params[:query])
     @user = current_user
+    if @user.nil?
+      redirect_to root_url
+    end
   end
 
   def show
+    @user = current_user
+    if @user.nil?
+      redirect_to root_url
+    end
     @coaster = Coaster.find(params[:id])
     @park = Park.find(@coaster.park_id)
     @json = @park.to_gmaps4rails
-    @user = current_user
   end
 
   # def search
@@ -16,6 +22,10 @@ class CoastersController < ApplicationController
   # end
 
   def new
+    @user = current_user
+    if @user.nil?
+      redirect_to root_url
+    end
     @coaster = Coaster.new
   end
 
