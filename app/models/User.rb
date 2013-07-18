@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
 
+  # This checks that the password_confirmation == password
+  # Automatically gives us the password_confirmation setter
+  validates :password, confirmation: true
+  validates :password, presence: true, on: :create
+
   # defines relationship between users and coasters
   has_and_belongs_to_many :coasters
   # makes all user attributes accessible
@@ -31,10 +36,7 @@ class User < ActiveRecord::Base
   # requires password to be at least 8 letters
   validates :password, length: { minimum: 8 }
 
-  # This checks that the password_confirmation == password
-  # Automatically gives us the password_confirmation setter
-  validates :password, confirmation: true
-  validates :password, presence: true, on: :create
+
 
   def encrypt_password
     if password.present?

@@ -1,10 +1,6 @@
 <h1>Hello there!  Welcome to So Inclined!</h1>
 
-<ul>
-<% @users.each do |user| %>
-  <li><%= link_to user.user_name, user %></li>
-<% end %>
-</ul>
+
 
 <%= link_to "Login", log_in_path %><br/>
 <%= link_to "New User?", sign_up_path %>
