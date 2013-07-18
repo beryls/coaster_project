@@ -1,6 +1,7 @@
 class ParksController < ApplicationController
   def index
     # finds all parks returned by query
+    # may want to use wildcards and/or titleize to allow for inexact searches
     @parks = Park.where(name: params[:query])
     # passes queried-for parks into API for Google Maps
     @json = @parks.to_gmaps4rails

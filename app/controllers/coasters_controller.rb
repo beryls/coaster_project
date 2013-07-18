@@ -1,6 +1,7 @@
 class CoastersController < ApplicationController
   def index
-    # all coasters matching search - may want to use wildcards and/or titleize to allow for inexact searches
+    # all coasters matching search
+    # may want to use wildcards and/or titleize to allow for inexact searches
     @coasters = Coaster.where(name: params[:query])
     # leave user here in case we allow coasters to be added to user list from search results
     @user = current_user

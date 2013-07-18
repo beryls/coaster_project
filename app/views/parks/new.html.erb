@@ -1,7 +1,9 @@
 <h1>Add a park to the database</h1>
 
+<! form to add a new park >
 <%= form_for @park do |f| %>
 
+  <! if the form is filled out incorrectly, this will return an error message, and details of the issues >
   <% if @park.errors.any? %>
     <h2>Form is invalid</h2>
     <ul>
@@ -11,6 +13,7 @@
     </ul>
   <% end %>
 
+  <! all fields below are necessary to create park - location is necessary to generate latitude and longitude for Google Maps API >
   <%= f.label :name %>
   <%= f.text_field :name %><br/>
   <%= f.label :city %>

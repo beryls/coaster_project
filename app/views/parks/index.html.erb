@@ -1,5 +1,6 @@
 <h1>Search for parks</h1>
 
+<! query form to search for parks - may want to use wildcards and/or titleize to allow for inexact searches >
 <%= form_tag('/parks', method: 'get') do %>
   <%= text_field_tag(:query, nil, :placeholder => 'Search for a park') %>
   <%= submit_tag 'Search' %>
