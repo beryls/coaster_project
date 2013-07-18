@@ -1,0 +1,8 @@
+<% if @coaster.errors.any? %>
+    <h2>Form is invalid</h2>
+    <ul>
+      <% @coaster.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>

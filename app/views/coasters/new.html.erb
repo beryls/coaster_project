@@ -4,14 +4,7 @@
 <%= form_for @coaster do |f| %>
 
   <! if the form is filled out incorrectly, this will return an error message, and details of the issues >
-  <% if @coaster.errors.any? %>
-    <h2>Form is invalid</h2>
-    <ul>
-      <% @coaster.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render 'errors' %>
 
   <! only name and park_id are necessary to create coaster - need for park_id means that park must be created before coaster >
   <%= f.label :name %>
