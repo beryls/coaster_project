@@ -1,9 +1,10 @@
 <h1>Hello, <%= @user.user_name %>!</h1>
 
+<h3>Coasters you've ridden</h3>
+
 <!-- list of all parks in which user has ridden a roller coaster
 each park has a list of coasters the user has ridden at that park
 each list item links to page for that park/coaster -->
-<h3>Coasters you've ridden</h3>
 <ul>
   <% @user_parks.each do |park| %>
   <li><%= link_to park.name, park %></li>
@@ -16,7 +17,7 @@ each list item links to page for that park/coaster -->
 </ul>
 
 <! link to edit profile page >
-<%= link_to "Edit profile", edit_user_path %><br/><br/>
+<%= link_to "Edit Profile", edit_user_path %><br/><br/>
 
 <! form to delete user profile >
 <%= form_tag("/users/#{@user.id}", method: 'delete') do %>
