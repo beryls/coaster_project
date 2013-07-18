@@ -14,4 +14,10 @@
   No results returned.
 <% end %>
 
-<%= link_to "Add coaster", new_coaster_path %>
+<%= link_to "Add a new coaster", new_coaster_path %>
+
+<!-- API for Google Maps - set up to show the parks of the queried-for coasters
+will only show up if search is run and returns coasters -->
+<% if @coasters && params[:query] %>
+  <%= gmaps4rails(@json) %><br/>
+<% end %>

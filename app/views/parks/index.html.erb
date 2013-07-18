@@ -11,3 +11,9 @@
 <% if @parks.empty? && params[:query] %>
   No results returned.
 <% end %>
+
+<!-- API for Google Maps - set up to show the queried-for parks
+will only show up if search is run and returns parks -->
+<% if @parks && params[:query] %>
+  <%= gmaps4rails(@json) %><br/>
+<% end %>

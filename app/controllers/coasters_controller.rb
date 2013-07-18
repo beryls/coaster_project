@@ -4,7 +4,11 @@ class CoastersController < ApplicationController
     @coasters = Coaster.where(name: params[:query])
     # leave user here in case we allow coasters to be added to user list from search results
     @user = current_user
-    # add map to coaster search? probably
+    # finds all parks of coasters returned by query
+    park_ids = @coasters.pluck(:park_id).uniq
+    @user_parks = Park.find(park_ids)
+    # passes user's parks into API for Google Maps
+    @json = @user_parks.to_gmaps4rails
   end
 
   def show
@@ -28,6 +32,8 @@ class CoastersController < ApplicationController
 
   def create
     @coaster = Coaster.new(params[:coaster])
+    # will only save and redirect if validation is met
+    # otherwise, will remain in '/coasters/new'
     if @coaster.save
       redirect_to root_url, notice: "Added coaster to database!"
     else

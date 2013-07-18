@@ -1,6 +1,7 @@
 class ParksController < ApplicationController
   def index
     @parks = Park.where(name: params[:query])
+    @json = @parks.to_gmaps4rails
   end
 
   def show
@@ -19,7 +20,8 @@ class ParksController < ApplicationController
 
   def create
     @park = Park.new(params[:park])
-    # will only save and redirect if validation is met - otherwise, will remain in '/parks/new'
+    # will only save and redirect if validation is met
+    # otherwise, will remain in '/parks/new'
     if @park.save
       redirect_to root_url, notice: "Added park!"
     else
