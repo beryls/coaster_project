@@ -1,15 +1,20 @@
 class UsersController < ApplicationController
   def index
-    @user = current_user
-    if @user
-      redirect_to "/users/#{@user.id}"
+    # if a session is in progress, redirects to the user show page
+    # otherwise, displays index page (almost blank at present)
+    user = current_user
+    if user
+      redirect_to "/users/#{user.id}"
     end
   end
 
   def show
+    # takes logged in user
     @user = current_user
+    # finds all parks at which that user has ridden a coaster
     park_ids = @user.coasters.pluck(:park_id).uniq
     @user_parks = Park.find(park_ids)
+    # passes user's parks into API for Google Maps
     @json = @user_parks.to_gmaps4rails
   end
 
@@ -19,6 +24,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    # is there any way to log in a newly signed up user automatically?
     if @user.save
       redirect_to root_url, notice: "Signed up!"
     else

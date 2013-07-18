@@ -1,6 +1,8 @@
 <h1>Hello, <%= @user.user_name %>!</h1>
 
-<! list of all parks in which the user has ridden a roller coaster - each park has a list of the coasters the user has ridden at that park >
+<!-- list of all parks in which user has ridden a roller coaster
+each park has a list of coasters the user has ridden at that park
+each list item links to page for that park/coaster -->
 <ul>
   <% @user_parks.each do |park| %>
   <li><%= link_to park.name, park %></li>
