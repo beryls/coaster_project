@@ -15,7 +15,9 @@
   <% end %>
 </ul>
 
-<%= gmaps4rails(@json) %>
+<%= gmaps4rails(@json) %><br/>
+
+<%= link_to "Log out", log_out_path %><br/><br/>
 
 <a href="/users/<%= @user.id %>/edit">Edit profile</a><br/>
 

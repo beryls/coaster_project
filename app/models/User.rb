@@ -12,10 +12,16 @@
 #
 
 class User < ActiveRecord::Base
+
+  # This gives us setter/getter methods
+  # This might not be in the database
+  attr_accessor :password
+  before_save :encrypt_password
+
   # defines relationship between users and coasters
   has_and_belongs_to_many :coasters
   # makes all user attributes accessible
-  attr_accessible :name, :user_name, :email, :password
+  attr_accessible :name, :user_name, :email, :password, :password_confirmation
   # requires existence of all user attributes
   validates :name, :user_name, :email, presence: true
   # defines maximum length for all user attributes
@@ -24,4 +30,29 @@ class User < ActiveRecord::Base
   validates :user_name, :email, uniqueness: true
   # requires password to be at least 8 letters
   validates :password, length: { minimum: 8 }
+
+  # This checks that the password_confirmation == password
+  # Automatically gives us the password_confirmation setter
+  validates :password, confirmation: true
+  validates :password, presence: true, on: :create
+
+  def encrypt_password
+    if password.present?
+      # This generates a random string that helps me encrypt the password
+      self.password_salt = BCrypt::Engine.generate_salt
+
+      # This encrypts the password, using the salt we just created
+      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+    end
+  end
+
+  def self.authenticate(email, password)
+    # This will auth a user
+    user = User.find_by_email(email)
+    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+      user
+    else
+      nil
+    end
+  end
 end

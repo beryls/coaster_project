@@ -15,16 +15,22 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user.name = params[:name]
-    @user.user_name = params[:user_name]
-    @user.email = params[:email]
-    @user.password = params[:password]
+    @user = User.new(params[:user])
     if @user.save
-      redirect_to "/users/#{params[:id]}"
+      redirect_to root_url, notice: "Signed up!"
     else
-      render action: "new"
+      render "new"
     end
+    # @user = User.new
+    # @user.name = params[:name]
+    # @user.user_name = params[:user_name]
+    # @user.email = params[:email]
+    # @user.password = params[:password]
+    # if @user.save
+    #   redirect_to "/users/#{params[:id]}"
+    # else
+    #   render action: "new"
+    # end
   end
 
   def edit

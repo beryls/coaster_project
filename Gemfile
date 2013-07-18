@@ -11,6 +11,8 @@ gem 'nokogiri'
 
 gem 'gmaps4rails'
 
+gem 'bcrypt-ruby', require: 'bcrypt'
+
 group :development, :test do
   gem 'pry-rails'           # Causes rails console to open pry
                             # https://github.com/rweng/pry-rails

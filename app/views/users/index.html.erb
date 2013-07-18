@@ -1,4 +1,4 @@
-<h1>Hello, users!</h1>
+<h1>Hello there!  Welcome to So Inclined!</h1>
 
 <ul>
 <% @users.each do |user| %>
@@ -6,4 +6,5 @@
 <% end %>
 </ul>
 
-<a href="/users/new">New User?</a>
+<%= link_to "Login", log_in_path %><br/>
+<%= link_to "New User?", sign_up_path %>
