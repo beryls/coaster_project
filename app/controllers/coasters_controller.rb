@@ -76,7 +76,7 @@ class CoastersController < ApplicationController
       end
     else
       id = params[:id].to_i
-      if coaster_array.include? id
+      if coaster_array.include?(id)
         user.coasters.delete(Coaster.find(id))
       end
     end
