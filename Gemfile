@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
+ruby "1.9.3"
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', :group => :production
-
 
 gem 'nokogiri'
 
@@ -15,6 +15,8 @@ gem 'gmaps4rails'
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 gem "twitter-bootstrap-rails"
+
+gem "therubyracer", "~> 0.11.4"
 
 group :development, :test do
   gem 'sqlite3'
