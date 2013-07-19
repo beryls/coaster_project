@@ -61,6 +61,9 @@ CoasterProject::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.assets.paths << "#{Gmaps4rails::Engine.config.root}/public/stylesheets"
+  config.assets.precompile << "gmaps4rails.css"
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5

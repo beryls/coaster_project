@@ -9,6 +9,8 @@ application.js: application-90c09ce1abb10c300b962896a5d6f7f0.js
 application/index.js: application-90c09ce1abb10c300b962896a5d6f7f0.js
 application.css: application-dc2e616de8be477f54faa224486fbe8f.css
 application/index.css: application-dc2e616de8be477f54faa224486fbe8f.css
+gmaps4rails.css: gmaps4rails-32b6d34c50fc0024f89f6308ce8e748c.css
+gmaps4rails/index.css: gmaps4rails-32b6d34c50fc0024f89f6308ce8e748c.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 fontawesome-webfont.eot: fontawesome-webfont-b49e662c23140944a17d6301d2259446.eot
