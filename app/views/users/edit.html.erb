@@ -1,36 +1,11 @@
 <h1>Edit profile</h1>
 
 <! form to edit a current user>
-<%= form_for @user do |f| %>
-
-  <! If the form is filled out incorrectly, this will return an error message, and details of the issues >
-  <% if @user.errors.any? %>
-    <h2>Form is invalid</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %><br/>
-  <%= f.label :email %>
-  <%= f.text_field :email %><br/>
-  <%= f.label :password %> (min. 8 characters)
-  <%= f.password_field :password %><br/>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br/>
-
-  <%= f.submit %>
-
-<% end %>
-<br/>
+<%= render 'form' %>
 
 <! form to delete user profile >
 <%= form_tag("/users/#{@id}", method: 'delete') do %>
-  <%= submit_tag 'Delete Profile' %>
+  <div class="btn btn-danger"><%= submit_tag 'Delete Profile' %></div>
 <% end %>
-
 
 

@@ -1,8 +1,9 @@
 <% if @parks.present? %>
+  <h3>Search results</h3>
   <ul>
   <% @parks.each do |park| %>
     <! Provides links for each park called. >
-    <li><%= link_to park.name, park %></li>
+    <li class="results"><%= link_to park.name, park %></li>
   <% end %>
   </ul>
 <% end %>

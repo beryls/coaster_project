@@ -5,12 +5,14 @@
 
   <! if the form is filled out incorrectly, this will return an error message, and details of the issues >
   <% if @park.errors.any? %>
-    <h2>Form is invalid</h2>
-    <ul>
-      <% @park.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+    <div class="text-error">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @park.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <! all fields below are necessary to create park - location is necessary to generate latitude and longitude for Google Maps API >

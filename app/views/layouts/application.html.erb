@@ -10,18 +10,8 @@
 <body>
 
 <header>
-  <h1>So Inclined</h1>
-</header>
-
-<nav>
-  <a href="/users">Home page</a>
-  <a href="/parks">Search for parks</a>
-  <a href="/coasters">Search for coasters</a>
-</nav>
-
-<br/>
-
-<div id="user_nav">
+  <div id="name"><h1>So Inclined</h1></div>
+  <div id="user_nav">
   <% if current_user %>
     Logged in as <%= current_user.user_name %>.
     <%= link_to "Log out", log_out_path %>
@@ -30,16 +20,22 @@
     <%= link_to "Sign up", sign_up_path %>
   <% end %>
 </div>
+</header>
 
-<br/>
+<nav class="nav">
+  <a href="/users">Home page</a> |
+  <a href="/parks">Search for parks</a> |
+  <a href="/coasters">Search for coasters</a>
+</nav>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 
 
-
+<div id="yield">
 <%= yield %>
+</div>
 
 <%= yield :scripts %>
 

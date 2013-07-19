@@ -7,11 +7,14 @@ gem 'rails', '3.2.13'
 
 gem 'pg', :group => :production
 
+
 gem 'nokogiri'
 
 gem 'gmaps4rails'
 
 gem 'bcrypt-ruby', require: 'bcrypt'
+
+gem "twitter-bootstrap-rails"
 
 group :development, :test do
   gem 'sqlite3'

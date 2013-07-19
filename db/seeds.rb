@@ -11,6 +11,7 @@ Coaster.delete_all
 Park.delete_all
 User.delete_all
 
+# might no longer be able to use because of password_hash and password_salt
 u1 = User.create(user_name: "Beryl", email: "beryl.schragger@gmail.com", password: "blahblah")
 u2 = User.create(user_name: "Oren", email: "oren.schragger@gmail.com", password: "dootdoot")
 u3 = User.create(user_name: "Nancy", email: "nancy.schragger@gmail.com", password: "yeahyeah")
@@ -31,11 +32,11 @@ c8 = Coaster.create(name: "Sheikra", park_id: 3, material: "Steel")
 c9 = Coaster.create(name: "Montu", park_id: 3, material: "Steel")
 c10 = Coaster.create(name: "Kumba", park_id: 3, material: "Steel")
 
-User.all.each do |user|
-  user.coasters << c1 << c2 << c3
-end
+# User.all.each do |user|
+#   user.coasters << c1 << c2 << c3
+# end
 
-u1.coasters << c4 << c5 << c8 << c9
-u2.coasters << c7
+# u1.coasters << c4 << c5 << c8 << c9
+# u2.coasters << c7
 
 puts "All done"

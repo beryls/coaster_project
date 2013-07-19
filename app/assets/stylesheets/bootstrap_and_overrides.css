@@ -1,0 +1,78 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+body {
+  background-color: #CCCCCC;
+}
+
+header {
+  height: 50px;
+  padding: 15px;
+  color: white;
+  background-color: maroon;
+}
+
+header #name {
+  font-family: Calibri;
+  font-style: italic;
+  float: left;
+}
+
+#user_nav {
+  padding-top: 25px;
+  padding-right: 15px;
+  float: right;
+}
+
+#user_nav a {
+  color: #30A0B0;
+}
+
+nav {
+  padding: 5px 15px;
+  background-color: #888888;
+  clear: both;
+  font-size: 16px;
+}
+
+nav a {
+  color: white;
+}
+
+ul  {
+list-style-type: none;
+}
+
+#intro {
+  width: 50%;
+}
+
+#yield {
+  padding-left: 15px;
+}
+
+.left {
+  float: left;
+  width: 35%;
+}
+
+.right {
+  padding: 15px 15px;
+  float: right;
+  font-size: 16px;
+  text-align: center;
+}
+
+.results {
+  font-size: 16px;
+}
+
+.results a {
+  color: maroon;
+  text-decoration:underline;
+}

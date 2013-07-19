@@ -1,3 +1,4 @@
+<div class="left">
 <h1>Search for coasters</h1>
 
 <! query form to search for coasters - may want to use wildcards and/or titleize to allow for inexact searches >
@@ -5,19 +6,25 @@
   <%= text_field_tag(:query, nil ,:placeholder => 'Search for a coaster') %>
   <%= submit_tag 'Search' %>
 <% end %>
-<br/>
-<!-- turn results into a form to add or remove coasters from user's coaster list - can we do more than one at a time with checkboxes? -->
-<%= render 'results' %>
 
 <! Returns error message if search returns no results. >
 <% if @coasters.empty? && params[:query] %>
-  No results returned.
+  <h3>No results returned.</h3>
 <% end %>
 
-<%= render 'links' %>
+<!-- turn results into a form to add or remove coasters from user's coaster list - can we do more than one at a time with checkboxes? -->
+<%= render 'results' %>
+
+<%= render 'links' %><br/><br/>
+
+<h4>Due to limited functionality, we're currently providing a list of all coasters in our database.</h4>
+<% Coaster.all.each do |coaster| %>
+  <li class="results"><%= link_to coaster.name, coaster %> (Park: <%= link_to Park.where(id: coaster.park_id).first.name, Park.where(id: coaster.park_id).first %>)</li>
+<% end %>
+</div>
 
 <!-- API for Google Maps - set up to show the parks of the queried-for coasters
 will only show up if search is run and returns coasters -->
 <% if @coasters && params[:query] %>
-  <%= gmaps4rails(@json) %><br/>
+  <div class="right">Location of parks for coasters returned by your search<%= gmaps4rails(@json) %></div>
 <% end %>

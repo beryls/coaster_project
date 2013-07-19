@@ -1,15 +1,17 @@
 <! shows a park >
-<h1><%= @park.name %></h1>
+<div class="left">
+<h1>Park: <%= @park.name %></h1>
 
 <h3>Roller Coasters</h3>
 <! provides links to all coasters in the park >
 <ul>
   <% @coasters.each do |coaster| %>
-    <li><%= link_to coaster.name, coaster %></li>
+    <li class="results"><%= link_to coaster.name, coaster %></li>
   <% end %>
 </ul>
 
 <%= render 'links' %>
+</div>
 
 <! API for Google Maps - set up to show the park >
-<%= gmaps4rails(@json) %>
+<div class="right">Location of this park<%= gmaps4rails(@json) %></div>

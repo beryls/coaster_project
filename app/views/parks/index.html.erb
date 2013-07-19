@@ -1,3 +1,4 @@
+<div class="left">
 <h1>Search for parks</h1>
 
 <! query form to search for parks - may want to use wildcards and/or titleize to allow for inexact searches >
@@ -5,18 +6,25 @@
   <%= text_field_tag(:query, nil, :placeholder => 'Search for a park') %>
   <%= submit_tag 'Search' %>
 <% end %>
-<br/>
-<%= render 'results' %>
 
 <! Returns error message if search returns no results. >
 <% if @parks.empty? && params[:query] %>
-  No results returned.
+  <h3>No results returned.</h3>
 <% end %>
 
-<%= render 'links' %>
+<%= render 'results' %>
+
+<%= render 'links' %><br/><br/>
+
+<h4>Due to limited functionality, we're currently providing a list of all parks in our database.</h4>
+<% Park.all.each do |park| %>
+    <! Provides links for each park called. >
+    <li class="results"><%= link_to park.name, park %></li>
+<% end %>
+</div>
 
 <!-- API for Google Maps - set up to show the queried-for parks
 will only show up if search is run and returns parks -->
 <% if @parks && params[:query] %>
-  <%= gmaps4rails(@json) %><br/>
+  <div class="right">Location of parks returned by your search<%= gmaps4rails(@json) %></div>
 <% end %>
