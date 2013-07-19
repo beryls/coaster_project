@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Remove anything that's already there
-Coaster.delete_all
-Park.delete_all
-User.delete_all
+# Coaster.delete_all
+# Park.delete_all
+# User.delete_all
 
 # might no longer be able to use because of password_hash and password_salt
 u1 = User.create(user_name: "Beryl", email: "beryl.schragger@gmail.com", password: "blahblah")

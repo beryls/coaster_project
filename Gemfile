@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg', :group => :production
 
-gem 'nokogiri'
+# gem 'nokogiri'
 
 gem 'gmaps4rails'
 
