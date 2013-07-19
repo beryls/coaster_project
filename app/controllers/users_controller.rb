@@ -74,9 +74,4 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, notice: "Profile deleted.  Sorry to see you go."
   end
-
-  def list_update
-    binding.pry
-    redirect_to "/users/#{@user.id}"
-  end
 end

@@ -2,13 +2,12 @@
 <h1><%= @coaster.name %></h1>
 <h2>Park: <%= @park.name %></h2>
 
-<!-- if a user is logged in, creates check box that is checked if user has ridden coaster
-turn this into a form to add or remove coaster from user's coaster list -->
+<!-- if a user is logged in, creates check box to be checked if user has ridden coaster
+box can be unchecked to remove coaster from user's list, as well -->
 <% if @user %>
-
   <%= form_tag(user_list_path, method: 'put') do %>
     <%= label_tag "Have you ridden this coaster?" %>
-    <%= check_box_tag "user[coaster]", @coaster.id, @user.coasters.include?(@coaster) %>
+    <%= check_box_tag "ridden", @user.coasters.include?(@coaster), @user.coasters.include?(@coaster) %>
     <%= submit_tag 'Update Coaster List' %>
   <% end %>
 <% end %>

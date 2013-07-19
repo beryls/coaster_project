@@ -65,4 +65,21 @@ class CoastersController < ApplicationController
       render action: "edit"
     end
   end
+
+  def user_list
+    user = current_user
+    id = params[:id].to_i
+    coaster_array = user.coasters.pluck(:id)
+    if params[:ridden].nil? == false
+      if coaster_array.include?(id) == false
+        user.coasters << Coaster.find(id)
+      end
+    else
+      id = params[:id].to_i
+      if coaster_array.include? id
+        user.coasters.delete(Coaster.find(id))
+      end
+    end
+    redirect_to "/users/#{user.id}"
+  end
 end

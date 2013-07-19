@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 
 gem 'nokogiri'
 
@@ -14,6 +14,7 @@ gem 'gmaps4rails'
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'pry-rails'           # Causes rails console to open pry
                             # https://github.com/rweng/pry-rails
   gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints

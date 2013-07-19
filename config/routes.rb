@@ -4,6 +4,7 @@ CoasterProject::Application.routes.draw do
   get '/log_out' => 'sessions#destroy', as: 'log_out'
   put '/coasters/:id/user_list' => 'coasters#user_list', as: 'user_list'
   root :to => 'welcome#index'
+  # if time, include only and/or except to remove unused paths
   resources :coasters, :parks, :users, :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
