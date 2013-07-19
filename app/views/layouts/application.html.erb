@@ -28,10 +28,11 @@
   <a href="/coasters">Search for coasters</a>
 </nav>
 
+<div class="text-error">
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
-
+</div>
 
 <div id="yield">
 <%= yield %>
