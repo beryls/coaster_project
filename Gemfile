@@ -16,7 +16,8 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 
 gem "twitter-bootstrap-rails"
 
-gem "therubyracer", "~> 0.11.4"
+gem "therubyracer"
+gem 'less-rails'
 
 group :development, :test do
   gem 'sqlite3'
