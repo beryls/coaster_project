@@ -19,7 +19,8 @@
 
 <h4>Due to limited functionality, we're currently providing a list of all coasters in our database.</h4>
 <% Coaster.all.each do |coaster| %>
-  <li class="results"><%= link_to coaster.name, coaster %> (Park: <%= link_to Park.where(id: coaster.park_id).first.name, Park.where(id: coaster.park_id).first %>)</li>
+  <li class="results"><%= link_to coaster.name, coaster %>
+    (Park: <%= link_to Park.find(coaster.park_id).name, Park.find(coaster.park_id) %>)</li>
 <% end %>
 </div>
 
@@ -27,4 +28,8 @@
 will only show up if search is run and returns coasters -->
 <% if @coasters && params[:query] %>
   <div class="right">Location of parks for coasters returned by your search<%= gmaps4rails(@json) %></div>
+<% else %>
+  <div class="right"><img src="http://www.placesaroundflorida.com/images/Tampa/Montu-Busch-Gardens.jpg"/><br/><br/><br/>
+    <img src="http://etherealwellness.files.wordpress.com/2012/10/emotional-roller-coaster.jpg"/>
+    </div>
 <% end %>

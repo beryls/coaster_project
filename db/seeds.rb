@@ -12,10 +12,10 @@
 # User.delete_all
 
 # might no longer be able to use because of password_hash and password_salt
-u1 = User.create(user_name: "Beryl", email: "beryl.schragger@gmail.com", password: "blahblah")
-u2 = User.create(user_name: "Oren", email: "oren.schragger@gmail.com", password: "dootdoot")
-u3 = User.create(user_name: "Nancy", email: "nancy.schragger@gmail.com", password: "yeahyeah")
-u4 = User.create(user_name: "Paul", email: "paul.schragger@gmail.com", password: "blahblah")
+u1 = User.create(user_name: "Beryl", email: "beryl.schragger@gmail.com", password: "asdfasdf", password_confirmation: "asdfasdf")
+u2 = User.create(user_name: "Oren", email: "oren.schragger@gmail.com", password: "asdfasdf", password_confirmation: "asdfasdf")
+u3 = User.create(user_name: "Nancy", email: "nancy.schragger@gmail.com", password: "asdfasdf", password_confirmation: "asdfasdf")
+u4 = User.create(user_name: "Paul", email: "paul.schragger@gmail.com", password: "asdfasdf", password_confirmation: "asdfasdf")
 
 p1 = Park.create(name: "Cedar Point", city: "Sandusky", state: "OH")
 p2 = Park.create(name: "Dorney Park", city: "Allentown", state: "PA")
@@ -27,7 +27,6 @@ p7 = Park.create(name: "Kings Dominion", city: "Doswell", state: "VA")
 p8 = Park.create(name: "California's Great America", city: "Santa Clara", state: "CA")
 p9 = Park.create(name: "Disneyland", city: "Anaheim", state: "CA")
 p10 = Park.create(name: "Walt Disney World", city: "Lake Buena Vista", state: "FL")
-
 p11 = Park.create(name: "Universal Studios", city: "Orlando", state: "FL")
 p12 = Park.create(name: "Hersheypark", city: "Hershey", state: "PA")
 p13 = Park.create(name: "Knott's Berry Farm", city: "Buena Park", state: "CA")
@@ -119,11 +118,10 @@ c75 = Coaster.create(name: "Journey to Atlantis", park_id: 14, material: "Steel"
 c76 = Coaster.create(name: "Kraken", park_id: 14, material: "Steel")
 
 
+u1.coasters = Coaster.all
 User.all.each do |user|
-  user.coasters << c1 << c2 << c3 << c4 << c5 << c6 << c7 << c8 << c9 << c10
+  user.coasters << c1 << c2 << c14 << c15 << c19 << c20 << c23 << c29 << c32 << c34 << c37
 end
-
-u1.coasters << c11 << c12 << c13 << c14 << c15
-u2.coasters << c37 << c38
+u2.coasters << c39 << c46 << c47 << c54 << c56 << c58 << c59 << c60 << c61 << c62 << c64 << c65 << c68 << c74 << c75 << c76
 
 puts "All done"

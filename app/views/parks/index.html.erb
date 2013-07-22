@@ -27,4 +27,6 @@
 will only show up if search is run and returns parks -->
 <% if @parks && params[:query] %>
   <div class="right">Location of parks returned by your search<%= gmaps4rails(@json) %></div>
+<% else %>
+  <div class="right"><img src="http://www.highextreme.co.uk/parks/images/dorney_park/Dorney_Park_26.JPG"></div>
 <% end %>

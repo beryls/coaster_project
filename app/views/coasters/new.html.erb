@@ -1,6 +1,7 @@
-<h1>Add a coaster to the database</h1>
+<div><h1>Add a coaster to the database</h1></div>
 
 <! form to add a new coaster >
+<div class="left">
 <%= form_for @coaster do |f| %>
 
   <! if the form is filled out incorrectly, this will return an error message, and details of the issues >
@@ -27,3 +28,6 @@
 <% end %>
 
 <%= render 'links' %>
+</div>
+
+<div class="right"><img src="http://www.joyrides.com/cedar_point/photos/raptor6.jpg"/></div>
